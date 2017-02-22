@@ -18,10 +18,19 @@ import com.hoantran.springboot.entity.UserEntity;
 public interface UserService {
 
     /**
-     * Gets the all user.
-     *
-     * @return the all user
+     * Get All User
+     * 
+     * @param isMale
+     * @return
      */
     List<UserEntity> getAllUser();
+
+    /**
+     * Get User by gender
+     * 
+     * @param isMale
+     * @return
+     */
+    List<UserEntity> getUserByGender(boolean isMale);
 
 }

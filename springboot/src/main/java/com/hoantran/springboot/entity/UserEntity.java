@@ -15,18 +15,18 @@ public class UserEntity implements java.io.Serializable {
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -6255997732752939054L;
 
-    /** The auto id. */
     @Id
     @Column(name = "ID", unique = true, nullable = false)
     private Long id;
 
-    /** The user name. */
     @Column(name = "USER_NAME")
     private String userName;
 
-    /** The created date. */
     @Column(name = "AGE")
     private Integer age;
+
+    @Column(name = "IS_MALE")
+    private Boolean isMale;
 
     /**
      * Instantiates a new user entity.
@@ -74,6 +74,20 @@ public class UserEntity implements java.io.Serializable {
      */
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    /**
+     * @return the isMale
+     */
+    public Boolean getIsMale() {
+        return isMale;
+    }
+
+    /**
+     * @param isMale the isMale to set
+     */
+    public void setIsMale(Boolean isMale) {
+        this.isMale = isMale;
     }
 
 }
