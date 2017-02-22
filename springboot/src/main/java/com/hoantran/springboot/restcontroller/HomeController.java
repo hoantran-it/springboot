@@ -4,7 +4,7 @@
  * Any modifications to this file must keep this entire header intact.
  *
  */
-package com.hoantran.springboot.controller;
+package com.hoantran.springboot.restcontroller;
 
 import java.util.List;
 
