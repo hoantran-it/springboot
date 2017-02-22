@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hoantran.springboot.dto.UserCriteria;
+import com.hoantran.springboot.dto.UserDTO;
 import com.hoantran.springboot.entity.UserEntity;
 import com.hoantran.springboot.service.UserService;
+import com.hoantran.springboot.utils.RestDataConverter;
 
 /**
  * @author hoan.tran
@@ -32,19 +34,22 @@ public class UserRestController {
     private final static Logger LOGGER = LoggerFactory.getLogger(UserRestController.class);
 
     @Autowired
+    private RestDataConverter restDataConverter;
+
+    @Autowired
     private UserService userService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public List<UserEntity> getAllUser() {
+    public List<UserDTO> getAllUser() {
         LOGGER.info("UserRestController layer: Get all user");
         List<UserEntity> userList = userService.getAllUser();
-        return userList;
+        return restDataConverter.buildUserDTOs(userList);
     }
 
     @RequestMapping(value = "/getUserByGender", method = RequestMethod.POST)
-    public List<UserEntity> getUserByGender(@RequestBody UserCriteria criteria) {
+    public List<UserDTO> getUserByGender(@RequestBody UserCriteria criteria) {
         LOGGER.info("UserRestController layer: Get user by gender");
         List<UserEntity> userList = userService.getUserByGender(criteria.getIsMale());
-        return userList;
+        return restDataConverter.buildUserDTOs(userList);
     }
 }
