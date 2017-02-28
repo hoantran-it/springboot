@@ -2,7 +2,7 @@ CREATE  TABLE IF NOT EXISTS `user` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `user_name` VARCHAR(45) NULL DEFAULT NULL ,
   `age` INT(11) NULL DEFAULT NULL ,
-  `isMale` TINYINT(1) NULL DEFAULT 1 ,
+  `is_male` TINYINT(1) NULL DEFAULT 1 ,
   PRIMARY KEY (`id`) );
   
 commit;
