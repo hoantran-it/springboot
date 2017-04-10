@@ -26,7 +26,7 @@ import com.hoantran.springboot.utils.RestDataConverter;
  * @author hoan.tran
  */
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/users")
 public class UserRestController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(UserRestController.class);
@@ -37,7 +37,7 @@ public class UserRestController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<UserDTO> getAllUser() {
         LOGGER.info("UserRestController layer: Get all user");
         List<UserEntity> userList = userService.getAllUser();
